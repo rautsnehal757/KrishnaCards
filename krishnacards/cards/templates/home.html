@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/5ec31c46d7.js" crossorigin="anonymous"></script>
+  <style>
+//navbar css
+        .navbar-brand {
+          padding: 0px;
+        }
+        .navbar-brand>img {
+          height: 100%;
+          padding: 15px;
+          width: auto;
+        }
+
+        .example2 .navbar-brand>img {
+          padding: 7px 15px;
+        }
+// categries css
+
+body{
+	font-size: 100%;
+	font-family: 'Roboto', sans-serif;
+	margin: 0;
+	padding: 0;
+	background-color: #88BDBC;
+  background: radial-gradient(ellipse at center, #C0F0F0, #369593);
+}
+
+
+//gallery container
+.container{
+
+	.main_header{
+		padding-top: 10%;
+	}
+
+	.main_header__title{
+		position: relative;
+		height: 50px;
+		vertical-align: baseline;
+		color: #369593;
+		text-transform: uppercase;
+		font-size: 1.5em;
+		margin-left: 1%;
+	}
+	.container__title{
+		position: relative;
+		height: 30px;
+		vertical-align: baseline;
+		font-size: 0.9em;
+		font-weight: 400;
+		color: #f6f6f6;
+		text-transform: uppercase;
+		border-bottom: 1px solid #f9f9f9;
+	}
+
+
+
+	//gallery boxs
+    .box:hover{
+      box-shadow: 15px 15px 13px rgba($color: #555, $alpha: 0.3);
+      transition: .4s;
+      transform: translate(-1%, -1%);
+    }
+	.box{
+		position: relative;
+		height: 200px;
+		box-shadow: 3px 3px 10px rgba($color: #555, $alpha: 0.5);
+		border-radius: 8px;
+		margin-bottom: 7%;
+    transition: 1s;
+
+		a:hover .box__title{
+			height: 35%;
+      transition: 1s;
+
+			p{
+				opacity: 1;
+			}
+		}
+
+
+		img{
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			border-radius: 8px;
+		}
+
+		.box__title{
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			height: 25%;
+			background-color: #F6F6F6;
+			border-radius: 0 0 8px 8px;
+			vertical-align: middle;
+			transition: .5s;
+			transition-timing-function: ease-out;
+
+			p{
+				opacity: 0;
+				text-align: center;
+				color: #bababa;
+				font-size: .8em;
+				margin: 0;
+				transition-delay: .2s;
+				transition: .2s;
+				transition-timing-function: ease-out;
+			}
+
+			h6{
+				text-align: center;
+				color: #bababa;
+				text-transform: uppercase;
+				margin: 7% 0 0 0;
+				font-size: .9em;
+			}
+		}
+	}
+
+	//add new box
+	.add_box{
+		@extend.box;
+		background-color: #f9f9f9;
+
+		a{
+			position: absolute;
+			width: 100%;
+			height: 100%;
+		}
+
+		svg{
+			display: block;
+			margin: auto;
+			margin-top: 23.5%;
+			transition: .3s;
+			transition-timing-function: ease-out;
+		}
+
+		.add_box__title{
+			position: absolute;
+			width: 100%;
+			text-align: center;
+			color: #bababa;
+			top: 60%;
+
+			h6{
+				text-transform: uppercase;
+			}
+		}
+
+		a:hover svg{
+			margin-top: 21.5%;
+		}
+	}
+}
+
+//footer css
+.site-footer
+{
+  background-color:#191970;
+  padding:45px 0 20px;
+  font-size:15px;
+  line-height:24px;
+  color:#737373;
+}
+.site-footer hr
+{
+  border-top-color:#bbb;
+  opacity:0.5
+}
+.site-footer hr.small
+{
+  margin:20px 0
+}
+.site-footer h6
+{
+  color:#fff;
+  font-size:16px;
+  text-transform:uppercase;
+  margin-top:5px;
+  letter-spacing:2px
+}
+.site-footer a
+{
+  color:#737373;
+}
+.site-footer a:hover
+{
+  color:#3366cc;
+  text-decoration:none;
+}
+.footer-links
+{
+  padding-left:0;
+  list-style:none
+}
+.footer-links li
+{
+  display:block
+}
+.footer-links a
+{
+  color:#737373
+}
+.footer-links a:active,.footer-links a:focus,.footer-links a:hover
+{
+  color:#3366cc;
+  text-decoration:none;
+}
+.footer-links.inline li
+{
+  display:inline-block
+}
+
+.copyright-text
+{
+  margin:0
+}
+@media (max-width:991px)
+{
+  .site-footer [class^=col-]
+  {
+    margin-bottom:30px
+  }
+}
+@media (max-width:767px)
+{
+  .site-footer
+  {
+    padding-bottom:0
+  }
+  .site-footer .copyright-text,.site-footer .social-icons
+  {
+    text-align:center
+  }
+}
+.social-icons
+{
+  padding-left:0;
+  margin-bottom:0;
+  list-style:none
+}
+
+
+
+@media (max-width:767px)
+{
+  .social-icons li.title
+  {
+    display:block;
+    margin-right:0;
+    font-weight:600
+  }
+}
+
+//social media
+
+  </style>
+</head>
+<body>
+
+<div class="container example2">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar2">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="http://disputebills.com"><img src="https://res.cloudinary.com/candidbusiness/image/upload/v1455406304/dispute-bills-chicago.png" alt="Dispute Bills">
+        </a>
+      </div>
+      <div id="navbar2" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li class=""><a href="{% url 'home' %}">Home</a></li>
+          <li><a href="{% url 'about' %}">About</a></li>
+          <li><a href="{% url 'contact' %}">Contact</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Menu <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="#">Hindu Cards</a></li>
+              <li><a href="#">Muslim Cards</a></li>
+              <li><a href="#">Invitation Cards</a></li>
+              <li class="divider"></li>
+              <li><a href="#">Prin Screen</a></li>
+              <li><a href="#">Offset</a></li>
+                <li><a href="#">Brosher</a></li>
+              <li><a href="#">Handbill</a></li>
+
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <!--/.nav-collapse -->
+    </div>
+    <!--/.container-fluid -->
+  </nav>
+
+    {% block header %}
+
+  <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="3000">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+      {% for item in carousel %}
+        {% if item.id == 1 %}
+        <div class="item active">
+          <img src="{{ item.image.url }}" alt="" style="width:100%;">
+        </div>
+        {% endif %}
+        <div class="item">
+          <img src="{{ item.image.url }}" alt="" style="width:100%;">
+        </div>
+      {% endfor %}
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+
+ <div class="main_header row">
+     <h2 class="main_header__title" style="text-align:center;margin: 5rem"><b>Wedding Cards Categories</b></h2>
+      </div>
+
+      <div class="row pt-4">
+      {% for i in card %}
+        <div class="col-xl-3 col-lg-4 col-sm-6">
+          <div class="box">
+            <a href="{% url 'cards_view' i.category.id %}">
+              <img src="{{ i.image.url }}" alt="" style="width:100%;height:300px" >
+              <div class="box__title" style="text-align: center;">
+                  <h6><b style="font-size: 20px;color: black;">{{ i.name }}</b></h6><br>
+              </div>
+            </a>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+{% endblock %}
+
+  <footer  class="site-footer">
+
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 col-md-6">
+              <h4><b>ABOUT KRISHNA CARDS</b></h4>
+            <p class="text-justify"> "Your Wedding, Our Invitations."
+We are the largest wholesaler and retailer of fancy wedding invitations including wedding cards and wedding boxes in India. We also deal in packaging boxes, sagan envelopes, and stationery items. We have incorporated high-class printing machines for the best quality and more economical full-fledged printing infrastructure. The resultant quality of our products is unmatched by other suppliers.</p>
+              <div class="social-icons">
+                 <h4><b>FOLLOW US</b></h4>
+                 <a href="https://www.instagram.com/krushnacards/?igshid=MzRlODBiNWFlZA%3D%3D"><img src="{% static 'images/social/instagram.jpeg' %}" style="height:20px;width:20px;margin:.5rem"/></a>
+                  <a href="https://wa.me/message/74UTCRWTDHVVA1"><img src="{% static 'images/social/whatsappImg.png' %}" style="height:20px;width:20px;margin:.5rem"/></a>
+                  <a href="https://www.facebook.com/krushnacards?mibextid=ZbWKwL"><img src="{% static 'images/social/facebook.png' %}" style="height:20px;width:20px;margin:.5rem"/></a>
+              </div>
+          </div>
+
+          <div class="col-xs-6 col-md-3">
+              <h4><b>CONTACT US</b></h4>
+            <ul class="footer-links">
+                <li><b>Address:</b> 693/1/2, Budhwar Peth, Opp.Kadbe Ali Talim Near Sakal office, Pune 411 002.</li>
+                <li><b>Phone:</b> 020 29952642 </li>
+                <li><b>Whatsapp:</b> 09881221328 </li>
+                <li><b>E-Mail:</b><a href="mailto:krushnacards6@gmail.com">krushnacards6@gmail.com</a> </li>
+            </ul>
+          </div>
+
+          <div class="col-xs-6 col-md-3">
+              <h4><b>USEFUL LINKS</b></h4>
+            <ul class="footer-links">
+              <li><a href="http://scanfcode.com/about/">About Us</a></li>
+              <li><a href="http://scanfcode.com/contact/">Contact Us</a></li>
+              <li><a href="http://scanfcode.com/contribute-at-scanfcode/">Contribute</a></li>
+              <li><a href="http://scanfcode.com/privacy-policy/">Privacy Policy</a></li>
+              <li><a href="http://scanfcode.com/sitemap/">Sitemap</a></li>
+            </ul>
+          </div>
+        </div>
+        <hr>
+      </div>
+  </footer>
+
+
+</div>
+</body>
+</html>
